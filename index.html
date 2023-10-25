@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSY AIRCONDITIONER</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .navbar {
+            box-shadow: 2px 5px 10px black;
+            background: #e5e5e5cb;
+        }
+
+        .nav-link {
+            font-weight: bold;
+            font-family: arial;
+        }
+
+        .Header {
+            display: flex;
+            position: relative;
+        }
+
+        .Header-caption {
+            height: 100%;
+            width: 100%;
+            padding: 15%;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            color: #ffffff;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.472);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .Header-caption h1 {
+            font-size: 3.5vw;
+            font-weight: bold;
+            text-shadow: 5px 4px 10px #000000;
+        }
+
+        .Header-caption h1 span {
+            color: #07c2f6;
+        }
+
+        .Header-caption p {
+            font-size: larger;
+            color: rgb(190, 192, 192);
+        }
+
+        #ac {
+            width: 70%;
+            padding: 0;
+            position: relative;
+            top: -15rem;
+            left: 19rem;
+            z-index: 5;
+        }
+
+
+        .mian {
+            width: 100%;
+            min-height: 100%;
+            position: absolute;
+        }
+
+
+        #page1 {
+            width: 100%;
+            margin-top: -200px;
+            padding-bottom: 150px;
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+            line-height: 40px;
+        }
+
+        .page1-img {
+            min-height: 100%;
+        }
+
+        .page1-contant {
+
+            width: 40vw;
+            min-height: 500px;
+        }
+
+        h1 {
+            font-size: 3vw;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        h1 span {
+            color: #07c2f6;
+        }
+
+        p {
+            font-size: 1.3vw;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .btn {
+            background: #07c2f6;
+            color: #fff;
+        }
+
+        .page1-img #img1 {
+            width: 500px;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 5px 5px 20px black;
+            transition: 2s ease;
+        }
+
+        #page2 {
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        #page2 img {
+            width: 100%;
+            height: 350px;
+        }
+
+        #page2 div {
+            width: 100%;
+            height: 350px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            padding: 5rem;
+            background: #0000003d;
+            color: #fff;
+        }
+
+
+        .heading {
+            font-size: 45px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #page3 {
+            padding: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand {
+            width: 250px;
+            height: 250px;
+        }
+
+        .box {
+            margin: 100px;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            margin-top: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50px 0px;
+            background: rgba(0, 0, 0, 0.305);
+            opacity: 0;
+            width: 250px;
+            height: 50px;
+            transition: 1s ease;
+        }
+
+        .overlay:hover {
+            height: 250px;
+            margin-top: 0;
+            opacity: 1;
+        }
+
+        #page4 {
+            width: 100%;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box-reviwe {
+            width: 500px;
+            min-height: 140px;
+            border: 1px solid;
+            padding: 30px;
+            text-align: center;
+            transition: 0.9s ease-in-out all;
+        }
+
+        .box-reviwe:hover {
+            transform: translate(20px, -20px);
+            box-shadow: -5px 5px 10px black;
+            cursor: pointer;
+            background: #07c2f6;
+            color: #ffffff;
+        }
+
+        .box-reviwe img {
+            width: 50px;
+            border: none;
+            border-radius: 50%;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            width: 100%;
+            height: 500px;
+            background: #e5e5e5cb;
+        }
+
+        .footer h5 {
+            text-align: center;
+        }
+
+        .footer-contant {
+            border-bottom: 2px solid black;
+            min-height: 400px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .footer-contant ul li {
+            list-style: none;
+        }
+
+        .footer-contant ul li a {
+            color: #07c2f6;
+            font-weight: 900;
+            line-height: 2rem;
+        }
+
+        .footer div i {
+            border: 1px solid #07c2f6;
+            border-radius: 50%;
+            color: #07c2f6;
+            padding: 10px;
+            transition: 0.5s ease all;
+        }
+
+        .footer div i:hover {
+            color: #ffffff;
+            background-color: #07c2f6;
+        }
+
+        .footer div {
+            display: flex;
+            gap: 3rem;
+        }
+
+        @media (max-width:768px) {
+            .navbar-brand {
+                width: 250px;
+            }
+
+            .Header {
+                margin-top: 72.66px;
+            }
+
+            .Header-caption h1 {
+                font-size: 1.2rem;
+            }
+
+            .Header-caption p {
+                font-size: 10px;
+            }
+
+            #ac {
+                top: -2rem;
+                left: 65px;
+            }
+
+            #page1 {
+                flex-direction: column;
+                margin-top: 5rem;
+            }
+
+            #page1 .page1-img img {
+                width: 15rem;
+            }
+
+            .page1-contant {
+                width: 70%;
+                line-height: 20px;
+            }
+
+            .page1-contant h1 {
+                font-size: 1.6rem;
+            }
+
+            .page1-contant p {
+                font-size: 3vw;
+            }
+
+            .heading {
+                font-size: 5vw;
+                margin-top: -60vw;
+            }
+
+            #page3 {
+                flex-direction: column;
+                gap: 0px;
+            }
+
+            .box {
+                margin: 10px;
+            }
+
+            #page2>img {
+                height: 8rem;
+            }
+
+            #page2>div {
+                top: 0;
+                padding: 25px 0px;
+                height: 8rem;
+            }
+
+            #page2 div h1 {
+                font-size: 1.1rem;
+            }
+
+            #page2 div p {
+                font-size: 0.6rem;
+            }
+
+            #page4 h1 {
+                font-size: 2rem;
+            }
+
+            .card-container {
+                flex-direction: column;
+            }
+
+            .box-reviwe {
+                width: 350px;
+            }
+
+            .box-reviwe p {
+                font-size: 1rem;
+            }
+
+            .box-reviwe:hover {
+                transform: translate(5px, -5px);
+            }
+
+            .footer-contant {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .footer-contant img {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mian bg-light">
+        <nav class="navbar bg-white navbar-dark navbar-expand-lg fixed-top z-2">
+            <div class="container-fluid">
+                <a href="" class="navbar-brand"><img src="./images/logo.png" alt="" class="img-fluid"></a>
+
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+                    <i class="fa-solid fa-bars" style="color: #000000;"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center " id="nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item text-center ml-5"><a class="nav-link text-dark" href="#">Home</a></li>
+                        <li class="nav-item text-center ml-5 dropdown "><a class="nav-link text-dark"
+                                data-toggle="dropdown" href="product.html">Product</a>
+                            <ul class="dropdown-menu bg-white justify-content-center">
+                                <li class="dropdown-item text-center"><a class="dropdown-link text-dark"
+                                        href="product.html#lg">LG</a>
+                                </li>
+                                <li class="dropdown-item text-center"><a class="dropdown-link text-dark"
+                                        href="product.html#dawlance">DAWLANCE</a></li>
+                                <li class="dropdown-item text-center"><a class="dropdown-link text-dark"
+                                        href="product.html#haier">HAIER</a>
+                                </li>
+                                <li class="dropdown-item text-center"><a class="dropdown-link text-dark"
+                                        href="product.html#pel">PEL</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-center ml-5"><a class="nav-link text-dark"
+                                href="shop location.html">Shop location</a>
+                        </li>
+                        <li class="nav-item text-center ml-5"><a class="nav-link text-dark" href="contact.html">Contact
+                                us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="Header">
+            <img src="./images/c4.jpeg" class="img-fluid w-100" alt="">
+            <div class="Header-caption">
+                <h1>Cooling Solutions Tailored Just for You <span><BR>Cosy Air Conditioner</span></h1>
+                <p>At Cosy Air Conditioners, your comfort is our utmost priority. We understand that a comfortable
+                    environment is essential for your well-being and productivity. With a deep commitment to excellence,
+                    we offer a wide range of top-quality air conditioning solutions tailored to your specific needs</p>
+            </div>
+        </div>
+        <div class="Contant">
+            <img src="./images/cond-large-1024x444.png" alt="" id="ac">
+            <div id="page1">
+                <div class="page1-img">
+                    <img src="./images/ac-500x500.webp" alt="" id="img1">
+                </div>
+                <div class="page1-contant">
+                    <h1>We create the right <span>climate and temperature</span> for your home</h1>
+                    <p>Our fundamental inspiration derives from our core values. We are committed to addressing various
+                        business challenges at different levels, with the primary goal of fulfilling our customers'
+                        needs. Our determination is to consistently understand and cater to the aspirations of
+                        individuals and organizations alike.</p>
+
+                </div>
+            </div>
+            <h1 class="heading">BRANDED <span style="color: #07c2f6;"> AIRCONDITIONER </span> FOR SELL</h1>
+            <div id="page3">
+                <div class="box">
+                    <img src="./images/lg.png" class="brand" alt="">
+                    <div class="overlay">
+                        <a href="product.html#lg" class="btn">BY NOW</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./images/dawlance.png" class="brand" alt="">
+                    <div class="overlay">
+                        <a href="product.html#dawlance" class="btn">BY NOW</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./images/haier.png" class="brand" alt="">
+                    <div class="overlay">
+                        <a href="product.html#haier" class="btn">BY NOW</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./images/pel.png" class="brand" alt="">
+                    <div class="overlay">
+                        <a href="product.html#pel" class="btn">BY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <div id="page2">
+                <img src="./images/bg.jpg" alt="">
+                <div>
+                    <h1>Join the <span>Cosy family</span> and experience the difference in cooling technology</h1>
+                    <p>At Cosy, we take pride in revolutionizing the way you experience comfort through innovative
+                        cooling technology. </p>
+                </div>
+            </div>
+            <div id="page4">
+                <h1>Customer <span>Feedback</span></h1>
+                <div class="card-container">
+                    <div class="box-reviwe">
+                        <img src="./images/testimonial-1.jpg" class="img-fluid" alt="">
+                        <div>
+                            <h3>Emily</h3>
+                            <p>I am extremely satisfied with the product and service. Cosy Air Conditioners exceeded my
+                                expectations!</p>
+                        </div>
+                    </div>
+                    <div class="box-reviwe">
+                        <img src="./images/testimonial-2.jpg" class="img-fluid" alt="">
+                        <div>
+                            <h3>Liam</h1>
+                                <p>Cosy ACs have made a significant difference in my comfort. Highly recommended!</p>
+                        </div>
+                    </div>
+                    <div class="box-reviwe">
+                        <img src="./images/testimonial-3.jpg" class="img-fluid" alt="">
+                        <div>
+                            <h3>Ethan</h3>
+                            <p>Great experience with Cosy! Their cooling technology is top-notch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-contant">
+                <img src="./images/logo.png" width="20%">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="product.html">Product</a></li>
+                    <li><a href="shop location.html">Shop location</a></li>
+                    <li><a href="contact.html">Contant us</a></li>
+                </ul>
+                <div>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+            <h5>© 2023 Copyright ALL rights reserved</h5>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
